@@ -15,7 +15,11 @@ const Home = () => {
     const handleClick = (user) => {
         setSelectedUser(user);
     }
-    
+    if(!data){
+        return(
+            <UserListShimmer/>
+        )
+    }
     if(data){
         const reversedData = data.slice(0).reverse();
         return (
@@ -42,7 +46,8 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='w-[25rem]'>
-                    
+                    {!selectedUser ? <UserDetailsShimmer/> : <UserDetails data={selectedUser} className='w-[25rem]'/> }
+                    {/* <UserDetails data={selectedUser} className='w-[25rem]'/> */}
                 </div>
             </div>
         )
