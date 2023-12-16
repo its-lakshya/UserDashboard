@@ -1,9 +1,30 @@
 import useFetch from "../hooks/useFetch";
 import UserDetails from "../components/UserDetails";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { UserDetailsShimmer, UserListShimmer } from "../components/Shimmer";
+import UserDetailsModal from "../components/UserDetailsModal";
 
 const Home = () => {
+
+    const  getWindowSize = () => {
+        const {innerWidth, innerHeight} = window;
+        return {innerWidth, innerHeight};
+    }
+
+    const [windowSize, setWindowSize] = useState(getWindowSize());
+
+    useEffect(() => {
+        function handleWindowResize() {
+            setWindowSize(getWindowSize());
+        }
+        window.addEventListener('resize', handleWindowResize);
+
+        return () => {
+        window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
+
+
 
     const data = useFetch("https://602e7c2c4410730017c50b9d.mockapi.io/users");
     const [selectedUser, setSelectedUser] = useState()
@@ -15,6 +36,7 @@ const Home = () => {
     const handleClick = (user) => {
         setSelectedUser(user);
     }
+
     if(!data){
         return(
             <UserListShimmer/>
@@ -45,10 +67,12 @@ const Home = () => {
                         })}
                     </div>
                 </div>
-                <div className='w-[25rem] max-base:hidden'>
+                <div className='w-[25rem] max-base:hidden mt-16'>
                     {!selectedUser ? <UserDetailsShimmer/> : <UserDetails data={selectedUser} className='w-[25rem]'/> }
-                    {/* <UserDetails data={selectedUser} className='w-[25rem]'/> */}
                 </div>
+                {/* <div className='w-full'> */}
+                    {windowSize.innerWidth <= 840 && selectedUser ? <UserDetailsModal setSelectedUser = {setSelectedUser} data={selectedUser}/> : null}
+                {/* </div> */}
             </div>
         )
     }

@@ -5,7 +5,6 @@ import { FaLinkedin } from "react-icons/fa";
 import {UserDetailsShimmer} from "./Shimmer";
 
 const UserDetails = (user) => {
-    console.log(user.data)
 
     const NoImageFound = "https://xsgames.co/randomusers/avatar.php?g=male"
     const onImageError = (e) => {
@@ -17,33 +16,35 @@ const UserDetails = (user) => {
     }
     if(user.data)
     return (
-        <div className="mt-16 bg-[#e1f3ff] w-[25rem] text-[#828a92] h-[42rem] flex flex-col justify-center items-center rounded-[2rem] shadow-[#696969] shadow-2xl 
-        py-12 px-6 gap-y-5 ">
+        <div className=" bg-[rgb(225,243,255)] w-[25rem] text-[#828a92] h-[42rem] flex flex-col justify-center items-center rounded-[2rem] shadow-[#696969] shadow-2xl 
+        py-12 px-6 gap-y-5 max-xs:w-full max-xs:px-3">
             <div className='flex bg-white w-full h-64 rounded-xl p-4 gap-x-3 
-                hover:transition-transform hover:scale-[105%] duration-300  group'>
-                <div className='w-[12rem]   flex flex-col gap-y-1 overflow-hidden'>
-                    <span className="text-4xl font-semibold">{user.data.profile.firstName}  {user.data.profile.lastName}</span>
-                    <div className="flex flex-col">
-                        <span className='text-xs'>Username</span>
+                hover:transition-transform hover:scale-[105%] duration-300  group max-xs:flex-col-reverse max-xs:h-auto'>
+                <div className='w-[12rem]   flex flex-col gap-y-1 overflow-hidden max-xs:w-full'>
+                    <span className="text-4xl font-semibold max-xs:text-3xl">{user.data.profile.firstName}  {user.data.profile.lastName}</span>
+                    <div className="flex flex-col max-xs:flex-row max-xs:justify-start max-xs:items-center max-xs:gap-x-4">
+                        <span className='text-xs '>Username</span>
                         <span className='font-semibold text-sm'>{user.data.profile.username}</span>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col max-xs:flex-row max-xs:justify-start max-xs:items-start max-xs:gap-x-4">
                         <span className='text-xs'>Position</span>
-                        <span className='font-semibold text-sm h-10 overflow-hidden'>{user.data.jobTitle}</span>
+                        <span className='font-semibold text-sm h-10 overflow-hidden max-xs:h-auto'>{user.data.jobTitle}</span>
                     </div>
-                    <div className="flex flex-col">
+                    <div className="flex flex-col max-xs:flex-row max-xs:justify-start max-xs:items-center max-xs:gap-x-4">
                         <span className='text-xs'>Experience</span>
                         <span className='font-semibold text-sm'>{user.data.id%10} Years</span>
                     </div>
                 </div>
                 <img src={user.data.avatar ? user.data.avatar : NoImageFound} alt="user img" onError={onImageError} 
-                className='w-40 h-56 rounded-xl group-hover:shadow-lg group-hover:shadow-black group-hover:transition-transform 
-                group-hover:-translate-y-12 group-hover:duration-300 duration-300 after:hover:-translate-y-12'/>
+                className='w-40 h-56 rounded-xl group-hover:shadow-lg group-hover:shadow-gray-700 group-hover:transition-transform 
+                group-hover:-translate-y-12 group-hover:duration-300 duration-300 after:hover:-translate-y-12
+                max-xs:w-28 max-xs:h-28 max-xs:rounded-full'
+                />
             </div>
             <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-start text-xs overflow-hidden
                             hover:transition-transform hover:scale-[105%] duration-300">
                 <span className='font-semibold text-sm'>Bio</span>
-                {user.data.Bio}{user.data.Bio}
+                <span className='max-xs:h-12 overflow-hidden'>{user.data.Bio}{user.data.Bio}</span>
             </div>
             <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-center text-xs overflow-hidden 
                             hover:transition-transform hover:scale-[105%] duration-300 gap-y-2">
