@@ -2,7 +2,7 @@ import { FaFacebookSquare } from "react-icons/fa";
 import { FaInstagramSquare } from "react-icons/fa";
 import { FaTwitterSquare } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa";
-
+import {UserDetailsShimmer} from "./Shimmer";
 
 const UserDetails = (user) => {
     console.log(user.data)
@@ -12,7 +12,9 @@ const UserDetails = (user) => {
         e.target.src = NoImageFound
     }
 
-    
+    if(!user.data){
+        <UserDetailsShimmer/>
+    }
     if(user.data)
     return (
         <div className="mt-16 bg-[#e1f3ff] w-[25rem] text-[#828a92] h-[42rem] flex flex-col justify-center items-center rounded-[2rem] shadow-[#696969] shadow-2xl 
