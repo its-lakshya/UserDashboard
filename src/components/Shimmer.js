@@ -10,19 +10,20 @@ export const UserListShimmer = () => {
                         {numberOfUsers.map((user, index) => {
                             return (
                                 <button className='w-[28rem] my-2 bg-[#eff9ff] flex justify-center items-center rounded-md 
-                                gap-x-12 hover:transition-transform hover:scale-[105%] hover:duration-200 py-2' key={index}
+                                gap-x-12 hover:transition-transform hover:scale-[105%] hover:duration-200 py-2 shadow-lg
+                                shadow-[#696969]' key={index}
                                 >
-                                    <div className="w-16 h-16 rounded-full"></div>
-                                    <div className="flex flex-col justify-center items-start w-32">
-                                        <span className="font-bold text-lg"></span>
-                                        <span className="text-sm"></span>
+                                    <div className="w-16 h-16 rounded-full bg-gray-200"></div>
+                                    <div className="flex flex-col justify-center items-start w-32 gap-y-3 ">
+                                        <span className="font-bold text-lg w-32 bg-gray-200 h-4"></span>
+                                        <span className="text-sm w-24 h-4 bg-gray-200"></span>
                                     </div> 
                                 </button>
                             )
                         })}
                     </div>
                 </div>
-                <div className='w-[25rem] mt-16 '>
+                <div className='w-[25rem] mt-16 max-base:hidden'>
                     <UserDetailsShimmer/>
                 </div>
         </div>
@@ -37,7 +38,7 @@ export const UserDetailsShimmer = () => {
                 <div className='flex bg-white w-full h-64 rounded-xl p-4 gap-x-3 items-center justify-center'>
                     Click on the user for details
                 </div>
-                <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-start text-xs overflow-hidden">
+                <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-start text-xs overflow-hidden gap-y-4">
                 </div>
                 <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-center text-xs overflow-hidden gap-y-2">
                     
