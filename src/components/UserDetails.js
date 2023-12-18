@@ -38,7 +38,7 @@ const UserDetails = (user) => {
                 <img src={user.data.avatar ? user.data.avatar : NoImageFound} alt="user img" onError={onImageError} 
                 className='w-40 h-56 rounded-xl group-hover:shadow-lg group-hover:shadow-gray-700 group-hover:transition-transform 
                 group-hover:-translate-y-12 group-hover:duration-300 duration-300 after:hover:-translate-y-12
-                max-xs:w-28 max-xs:h-28 max-xs:rounded-full'
+                max-xs:w-28 max-xs:h-28 max-xs:rounded-full bg-gray-200'
                 />
             </div>
             <div className="w-full h-24 bg-white rounded-xl p-4 flex flex-col item-center justify-start text-xs overflow-hidden

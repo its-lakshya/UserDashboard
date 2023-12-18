@@ -50,7 +50,7 @@ const Home = () => {
             <div className='flex item-center justify-between w-full 2xl:w-[70rem] h-[auto]'>
                 <div className='flex flex-col gap-y-4 w-[30rem] max-lg:w-[22rem] max-base:w-full'>
                     <div className="font-bold text-4xl px-4 max-base:flex max-base:justify-center">Users</div>
-                    <div className="w-full h-[43rem] overflow-y-scroll flex flex-col justify-start items-center max-base:w-full">
+                    <div className="w-full h-[43rem] overflow-y-scroll flex flex-col justify-start items-center max-base:w-full scrollbar-hide">
                         {reversedData.map((user, index) => {
                             return (
                                 <button className={`w-[28rem] max-lg:w-[20rem] max-base:w-5/6 max-xs:w-full my-2 
@@ -76,9 +76,7 @@ const Home = () => {
                 <div className='w-[25rem] max-base:hidden mt-16'>
                     {!selectedUser ? <UserDetailsShimmer/> : <UserDetails data={selectedUser} className='w-[25rem]'/> }
                 </div>
-                {/* <div className='w-full'> */}
                     {windowSize.innerWidth <= 840 && selectedUser ? <UserDetailsModal setSelectedUser = {setSelectedUser} data={selectedUser}/> : null}
-                {/* </div> */}
             </div>
         )
     }
