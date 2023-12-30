@@ -56,7 +56,7 @@ const Home = () => {
                                 <button className={`w-[28rem] max-lg:w-[20rem] max-base:w-5/6 max-xs:w-full my-2 
                                  flex justify-center items-center rounded-md gap-x-12 shadow-lg cursor-pointer
                                 shadow-[#696969] hover:transition-transform hover:scale-[105%] hover:duration-100 duration-300 py-2
-                                ${divIndex === index ? `bg-[#4BC8FE] border-4 border-white` : `bg-[#e1f3ff]`}`
+                                ${divIndex === index ? `bg-[#4BC8FE]` : `bg-[#e1f3ff]`}`
                                 }
                                  key={user.createdAt}
                                 onClick={()=>{handleClick(user, index)}}
