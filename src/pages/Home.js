@@ -62,7 +62,7 @@ const Home = () => {
                                 onClick={()=>{handleClick(user, index)}}
                                 >
                                     <img src={user.avatar ? user.avatar : NoImageFound} alt="user img" onError={onImageError} 
-                                    className="w-16 h-16 rounded-full"
+                                    className={`w-16 h-16 rounded-full bg-gray-200`}
                                     />
                                     <div className="flex flex-col justify-center items-start w-32">
                                         <span className="font-bold text-lg">{user.profile.firstName}</span>
